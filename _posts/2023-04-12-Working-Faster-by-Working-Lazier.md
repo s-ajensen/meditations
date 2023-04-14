@@ -14,7 +14,7 @@ For instance, in many cases our data is not random but takes on some sort of pat
 
 To accomplish this, we might define some sort of class that allocates values in a given range for us. We could even give the class' instance a descriptive variable name like `Range* evens = new(0, 10, 2)`. This may be sufficcient (though not necessarily preferable) for integer types, but suppose that we are generating or querying a large number of complex objects. To avoid a stack overflow we now need to store and track all of these objects on the heap, and depending on how complex our object hierarchy is, this may become burdensome. There has to be another way!
 
-######Enter: **Lazy Loading**
+### Enter: *Lazy Loading*
 
 In principle, lazy loading provides some sort of API which from the exterior appears to function in a fashion analagous to that above: we have some entity stored in memory and we access it via some identifier–but what happens under the hood is much more clever. Instead of generating each value and storing it in memory, we simply define an interface that calculates the value that *would* be there and return it to the user on the fly, without needlessly allocating data we may not even use.
 
