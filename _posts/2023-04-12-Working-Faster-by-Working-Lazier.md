@@ -1,6 +1,6 @@
 # Working *Faster* by Working *Lazier*
 
-When we are programming, we often tend to bracket the implemenation details of data strutures such as arrays or vectors, imagining them as blocks of a given size contiguously allocated in memory. This mental model serves us well and, according to traditional storage techniques, isn't too far off from how these data are actually stored in memory.
+When we are programming, we often tend to bracket the implemenation details of data structures such as arrays or vectors, imagining them as blocks of a given size contiguously allocated in memory. This mental model serves us well and, according to traditional storage techniques, isn't too far off from how these data are actually stored in memory.
 
 This is why in languages like C, we have to tell the compiler what type of data we are storing in an array. For instance, when we define an array of 3, 32-bit integers as
 ```
