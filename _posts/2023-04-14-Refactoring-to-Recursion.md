@@ -44,4 +44,4 @@ to looking more like
 10
 ```
 
-which keeps our allocation for it *constant*.
+which keeps our allocation for it constant.
