@@ -3,8 +3,8 @@
 While working on the [Bowling Game Kata](http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata) I came across a statement which, upon a moment of reflection, nearly screamed at me through the screen that *there had to be a better way*:
 
 ```
-1|(it "should give the bonus for scoring a spare"
-2|    (should= 16 (score-game (concat (roll (roll (roll 5) 5) 3) roll-many 17 0))))
+(it "should give the bonus for scoring a spare"
+    (should= 16 (score-game (concat (roll (roll (roll 5) 5) 3) roll-many 17 0))))
 ```
 
 Sitting face to face with this monstrosity, I tried to imagine parsing this as someone not totally familiar with these functions... not only that but I tried to imagine what parsing it in 15 minutes would be like! Something had to change.
@@ -43,7 +43,7 @@ Where the `,,,` represents the place that the previous expression is inserted.
 
 So `[]` is passed as if to say `(roll [] 5)`, the return value of which is passed as the first parameter of the next call and so on.
 
-Our refactoring journey does not end here, though. There is still some blatant code duplication here on likes 3-4, so as the cherry on top let's factor those calls out to a function. This is especially appropriate as they serve the specific purpose of representing a spare, so it's worth denoting this as
+Our refactoring journey does not end here, though. There is still some blatant code duplication here on lines 3-4, so as the cherry on top let's factor those calls out to a function. This is especially appropriate as they serve the specific purpose of representing a spare, so it's worth denoting this as
 
 ```
 (defn roll-spare [rolls]
