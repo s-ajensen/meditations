@@ -2,7 +2,7 @@
 
 In a [previous post](https://s-ajensen.github.io/meditations/2023/04/14/Refactoring-to-Recursion.html), I extolled the virtues of Clojure's recursive approach to iteration and the massive benefit provided by having tail call optimization implicit in its looping structure. As I have continued to work with the language, however, I have discovered that my approach in that article—while valid—may not have been as idiomatic as hoped.
 
-I would, therefore, like to take the opportunity here to further refactor the lessons that were learned in refactoring procedural iteration to recursion in a yet more-declarative fashion.
+I would, therefore, like to take the opportunity here to further refactor the lessons that were learned by refactoring procedural iteration to recursion in a yet more-declarative fashion.
 
 Seeing as [primes and their generation](https://s-ajensen.github.io/meditations/2023/04/24/Primes-and-Pythagoreans.html) have been on my mind recently, let's address 3 possible approaches to the Sieve of Eratosthenes, starting with a [procedural approach in Java](https://www.geeksforgeeks.org/java-program-for-sieve-of-eratosthenes/).
 
