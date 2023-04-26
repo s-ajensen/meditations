@@ -45,7 +45,7 @@ The above function answers the question of "what are all the prime numbers below
 
 Well, Clojure has an answer to this as well (and it just so happens to be related to *[yet another](https://s-ajensen.github.io/meditations/2023/04/12/Working-Faster-by-Working-Lazier.html)* post of mine) by leveraging lazy sequences. Let's write a function that addresses all of the considerations we've mentioned up to this point. It will
 1. Not unnecessarily allocate memory to store values that we will not read
-2. Require us to give an upper limit to our query of primes
+2. Not Require us to give an upper limit to our query of primes
 3. Cache the result of each calculation so we don't have to recompute them in future calls
 
 Below, is such a function:
