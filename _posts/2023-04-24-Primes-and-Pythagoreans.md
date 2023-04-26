@@ -40,11 +40,12 @@ We can then take 2 and add it to our list of primes, reiterating with a new rang
 Fully fleshed-out in code, it might look something like this:
 
 ```
-(defn calc-primes [n]
-  (loop [possible-primes (range 2 n) primes '()]
-    (if (< n (first possible-primes))
+(defn find-primes [n]
+  (loop [possible-primes (range 2 n) primes []]
+    (if (empty? possible-primes)
       primes
-      (recur 
-        (filter #(= 0 (mod % (first possible-primes)) possible-primes))
-        (conj primes (first possible-primes))))))
+      (let [prime (first possible-primes)]
+        (recur
+          (filter #(not (= 0 (mod % prime))) possible-primes)
+          (conj primes prime))))))
 ```
