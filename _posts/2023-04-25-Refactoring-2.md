@@ -22,7 +22,7 @@ boolean[] sieveOfEratosthenes(int n){
 }
 ```
 
-As we can see, the algorithm begins by allocating memory in which our possible primes will be stored, so we require as many memory allocations as numbers we are checking. We then iterate through these possible primes one by one (stopping at the square root of our max value as to not waste time where we know there are no primes) and "cross off" the multiples of each by setting their value to false and returning an array of booleans to represent that if `prime[i]` is true, then is prime.
+As we can see, the algorithm begins by allocating memory in which our possible primes will be stored, so we require as many memory allocations as numbers we are checking. We then iterate through these possible primes one by one (stopping at the square root of our max value as to not waste time where we know there are no primes) and "cross off" the multiples of each by setting their value to false and returning an array of booleans to represent that if `prime[i]` is true, then `i` is prime.
 
 This approach is fine, but has a downside in that it not only requires us to specify a finite range of primes to search through, but we have to allocate memory for each of these possible primes each time we run the function. While this could be solved by, perhaps, caching the result of the sieve, but that just means *more* code for a problem which could be solved much more simply.
 
