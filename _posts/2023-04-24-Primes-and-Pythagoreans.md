@@ -1,4 +1,6 @@
-# Primes and Pythagoreans
+---
+title: "Primes and Pythagoreans"
+---
 
 While most know of the Pythagoreans for a particular, triangular theorem, their contributions to numerology, in fact, go much deeper. Specifically in the realm of prime numbers, a Pythagorean known as Eratosthenes of Cyrene developed a technique for their generation in the 3rd century (BC) which is still of importance to this day.
 

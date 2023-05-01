@@ -1,4 +1,6 @@
-# Refactoring to Recursion
+---
+title: "Refactoring to Recursion"
+---
 
 While Clojure provides a wide variety of succinct, declarative iterators, there are yet times where the most elegant way to enumerate is a good, old fashioned loop. If you take a peek into the Clojure toolbox, however, you might be surprised to see that no built in loop functions fit the traditional, imperative structure that we're used to seeing in languages like Java or C. Instead, we reformulate our loops into a recursive structure; our bound conditions become base cases and instead of incrementing variables we evaluate recursive expressions to achieve the same effect.
 

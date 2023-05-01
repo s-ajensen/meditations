@@ -1,4 +1,6 @@
-# Working *Faster* by Working *Lazier*
+---
+title: "Working Faster by Working Lazier"
+---
 
 When we are programming, we often tend to bracket the implemenation details of data structures such as arrays or vectors, imagining them as blocks of a given size contiguously allocated in memory. This mental model serves us well and, according to traditional storage techniques, isn't too far off from how these data are actually stored in memory.
 

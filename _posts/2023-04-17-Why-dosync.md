@@ -1,4 +1,6 @@
-# Why dosync?
+---
+title: "Why dosync?"
+---
 
 While looking back at some of my [Clojure Koans](https://github.com/functional-koans/clojure-koans) (particularly, the 16th), I noticed something which my eyes seemed to have passed over the first time: a call to a function `dosync` when setting a ref. Looking at the documentation led me down a deep rabbit hole of identity in Clojure, which I'm still trying to fully wrap my head around, but what I was able to clearly make of the motivation behind it is as follows.
 

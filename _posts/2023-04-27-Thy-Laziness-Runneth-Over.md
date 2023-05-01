@@ -1,4 +1,6 @@
-# Thy Laziness Runneth Over
+---
+title: "Thy Laziness Runneth Over"
+---
 
 Recently, while working on the [7th Euler problem](https://projecteuler.net/problem=7), I was struck by an error which I didn't expect to run across in the given context—indeed, I had specifically designed my code to avoid the error...
 

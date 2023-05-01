@@ -1,4 +1,6 @@
-# Weaving Threads
+---
+title: "Weaving Threads"
+---
 
 While working on the [Bowling Game Kata](http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata) I came across a statement which, upon a moment of reflection, nearly screamed at me through the screen that *there had to be a better way*:
 

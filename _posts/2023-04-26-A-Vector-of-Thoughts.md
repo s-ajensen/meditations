@@ -1,4 +1,6 @@
-# A Vector of Thoughts
+---
+title: "A Vector of Thoughts"
+---
 
 While familiarizing myself with Clojure, it's been fascinating to see how far LISP syntax can go and just how powerful the notion of the evaluation of list expressions can be. But I would be remiss if in exalting the power of the list, I overlooked the rightful place of the vector, another fundamental type in Clojure—albeit one with many different properties.
 

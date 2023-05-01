@@ -2,8 +2,6 @@
 title: "The Refactorer's Wager"
 ---
 
-# The Refactorer's Wager
-
 A fundamental step in the TDD process is the `refactoring` stage, where we look at the code which we wrote (which should be the smallest amount of code to make the test pass), and address instances of duplication, run-on functions, etc. During this stage, we will may come across instances such as the one below:
 
 ```
