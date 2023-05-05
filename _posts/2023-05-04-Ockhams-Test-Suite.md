@@ -4,7 +4,7 @@ title: "Ockham's Test Suite"
 
 One of the foundational principles of Test-Driven Development is that your code grows incrementally, and thus has every nook and cranny tested by your test suite. This degree of code coverage is, indeed, important but in my eyes, the true advantage of this incremental approach lies in the fact that it forces the code to evolve to fit the 'mold' that the use cases shape. While this implies that the code will include the functionality, if the tests truly are comprehensive, *then they will also ensure that the code **does nothing more than** the required functionality for the use cases.*
 
-This is an important distinction, because it demonstrates what it really means for a test suite to be fully comprehensive: that it not only ensures that the code meets the given requirements, but also doe not include unexpected behaviors.
+This is an important distinction, because it demonstrates what it really means for a test suite to be fully comprehensive: that it not only ensures that the code meets the given requirements, but also does not include unexpected behaviors.
 
 I ran into this recently while working through the roman numeral kata. It was my second time going through the problem, and was at a point where my code could correctly parse repeating tokens such as `III` to 3, or `XX` to 20, but now needed to make the jump to be able to recognize that `IV` means 4 and not 6 (as it would read each individual token and count it as `one` followed by `five`).
 
