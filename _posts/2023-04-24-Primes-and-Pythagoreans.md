@@ -37,11 +37,14 @@ which evaulates to
 
 `'(2 3 4 5 6 7 ...)`
 
-We can then take 2 and add it to our list of primes, reiterating with a new range defined by `(filter (fn [x] (= 0 (mod x 2))) possible-primes)`.
+We can then take 2 and add it to our list of primes, reiterating with a new range defined by 
+```clojure
+(filter (fn [x] (= 0 (mod x 2))) possible-primes)
+```
 
 Fully fleshed-out in code, it might look something like this:
 
-```
+```clojure
 (defn find-primes [n]
   (loop [possible-primes (range 2 n) primes []]
     (if (empty? possible-primes)

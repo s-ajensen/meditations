@@ -6,7 +6,7 @@ While further studying the principles of the Open/Closed Principle, I was remind
 
 If we look at our final code
 
-```
+```clojure
 (defprotocol Shape
   (area []))
 

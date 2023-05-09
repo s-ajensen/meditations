@@ -8,7 +8,7 @@ Coming from a more prodecural/object-oriented background, learning how to break 
 
 As has been discussed in [previous posts](https://s-ajensen.github.io/meditations/2023/04/14/Refactoring-to-Recursion.html), the closest structure that Clojure has to traditional loop structures involve a recursive approach. For instance, to sum values in a range, we might do the following:
 
-```
+```clojure
 ((loop [s (range 10) m 0]
   (if (nil? (next s))
     m
@@ -17,7 +17,7 @@ As has been discussed in [previous posts](https://s-ajensen.github.io/meditation
 
 Which works fine, but it can be done in a much simpler fashion by using the `reduce` function, which applies a function (in this case `+`) to pairs of values in our seq until it runs out of values:
 
-```
+```clojure
 (reduce + (range 10))
 ```
 

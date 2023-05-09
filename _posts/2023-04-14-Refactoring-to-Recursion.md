@@ -9,14 +9,14 @@ This may seem cumbersome at first, but if we are to write our code in proper fun
 To further express this point, let us take a common application of traditional loops and see how we might reformulate it in a recursive manner.
 
 ###### Incrementing a value n
-```
+```c
 int num = 0;
 for (int i = 0; i < 10; i++) {
     num += 1;
 }
 ```
 
-```
+```clojure
 (def n (loop [m 0]
   (if (= m 10)
     m
@@ -26,7 +26,7 @@ In the above example, we bind the symbol `n` to the value of the expression retu
 
 The `recur` method is particularly interesting since it acts as an implementation of [tail call optimization](https://en.wikipedia.org/wiki/Tail_call). Since we know that the original function will simply be returning a value from that same function with different input, we don't need to allocate a new stack frame for each function call. Thus our stack frame goes from looking like 
 
-```
+```clojure
 (loop 0)
 (loop (loop 0))
 (loop (loop (loop 0)))
@@ -37,7 +37,7 @@ The `recur` method is particularly interesting since it acts as an implementatio
 
 to looking more like 
 
-```
+```clojure
 (loop 0)
 (loop 1)
 (loop 2)

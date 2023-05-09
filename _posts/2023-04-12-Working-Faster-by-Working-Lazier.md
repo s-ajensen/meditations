@@ -5,7 +5,7 @@ title: "Working Faster by Working Lazier"
 When we are programming, we often tend to bracket the implemenation details of data structures such as arrays or vectors, imagining them as blocks of a given size contiguously allocated in memory. This mental model serves us well and, according to traditional storage techniques, isn't too far off from how these data are actually stored in memory.
 
 This is why in languages like C, we have to tell the compiler what type of data we are storing in an array. For instance, when we define an array of 3, 32-bit integers as
-```
+```c
 int arr[3] = { 1, 2, 3 };
 ```
 we allocate 3 * 32 = 96 bits of memory *and store the address of the first bit in `arr`*. When we wish to access data stored in any of these indices we might say `arr[1]` to access the second element, but this is really shorthand for `*(arr + 1)`[^1]. Likewise, to access the first element we would say `arr[0]`, which is shorthand for `*(arr + 0)`[^2].
@@ -27,7 +27,7 @@ If we wish to return to the above example of storing an array of integers, the l
 But is this not simply the situation we described before where each of these numbers has now been allocated in memory and we are simply indexing them one at a time when we access them? All we did was make their instantiation more simple...
 
 Or so it would seem! If we take a peek at the definition of `range` inside the decompiled `Clojure.Core` Java class file, we find an overloaded function, one parameter list of which seems to correspond with what we have provided: a single integer value:
-```
+```clojure
 (defn range
   ([end]
    (clojure.lang.Range/create end))

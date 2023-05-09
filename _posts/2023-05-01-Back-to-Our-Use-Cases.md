@@ -10,7 +10,7 @@ A classic example of this rears its ugly head in examples as simple as calculati
 
 Say that we needed to create a library that calculates the area of circles, squares, and rectangles. To accomplish this we may wish to impose the hierarchy we know from geometry class into our code by designating our `Square` class as a more particular kind of `Rectangle`. But in order to do so, we end up with the following connundrum:
 
-```
+```csharp
 class Rectangle {
     float length;
     float breadth;
@@ -33,7 +33,7 @@ This is the great temptation in OO design, to see our class hierarchies as havin
 
 For this reason, we would be better off returning to our use case: calculating the area of some kind of shape, and isolating it via ISP. Thus our hierarchy might look something like this:
 
-```
+```csharp
 interface Shape {
     float CalcArea();
 }
@@ -64,7 +64,7 @@ This is the beauty of polymorphism in Clojure: the language separates these conc
 
 If we wanted to write an implementation similar to the above in Clojure, it might look something like this:
 
-```
+```clojure
 (defprotocol Shape
   (area []))
 
@@ -79,7 +79,7 @@ If we wanted to write an implementation similar to the above in Clojure, it migh
 
 Which can then be polymorphically called on each type:
 
-```
+```clojure
 (let [shapes [(Rect. 2 3) (Square. 5)]]
   (do
     (area (first shapes))       ; => 6

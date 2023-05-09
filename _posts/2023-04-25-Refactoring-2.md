@@ -6,7 +6,7 @@ I would, therefore, like to take the opportunity here to further refactor the le
 
 Seeing as [primes and their generation](https://s-ajensen.github.io/meditations/2023/04/24/Primes-and-Pythagoreans.html) have been on my mind recently, let's address 3 possible approaches to the Sieve of Eratosthenes, starting with a [procedural approach in Java](https://www.geeksforgeeks.org/java-program-for-sieve-of-eratosthenes/).
 
-```
+```java
 boolean[] sieveOfEratosthenes(int n){
   boolean prime[] = new boolean[n+1];
   for(int i=0;i<=n;i++)
@@ -28,7 +28,7 @@ This approach is fine, but has a downside in that it not only requires us to spe
 
 Following [Refactoring<sup>1</sup>](https://s-ajensen.github.io/meditations/2023/04/14/Refactoring-to-Recursion.html), this is where we would apply Clojure's `loop` function for a recursive solution like so:
 
-```
+```clojure
 (defn find-primes [n]
   (loop [possible-primes (range 2 n) primes []]
     (if (empty? possible-primes)
@@ -49,7 +49,7 @@ Well, Clojure has an answer to this as well (and it just so happens to be relate
 3. Cache the result of each calculation so we don't have to recompute them in future calls
 
 Below, is such a function:
-```
+```clojure
 (defn lazy-primes
   ([] (lazy-primes (iterate inc 2)))
   ([possible-primes]

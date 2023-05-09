@@ -4,7 +4,7 @@ title: "Weaving Threads"
 
 While working on the [Bowling Game Kata](http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata) I came across a statement which, upon a moment of reflection, nearly screamed at me through the screen that *there had to be a better way*:
 
-```
+```clojure
 (it "should give the bonus for scoring a spare"
     (should= 16 (score-game (concat (roll (roll (roll 5) 5) 3) roll-many 17 0))))
 ```
@@ -19,7 +19,7 @@ I was left stumped until I remembered a particular [Clojure koan](https://github
 
 This allowed me to take the unreadable "run-on sentence" above and translate it to the much more readable
 
-```
+```clojure
 (it "should give the bonus for scoring a spare"
     (should= 16 (score-game (-> []
                                 (roll 5)
@@ -32,7 +32,7 @@ Now, you may be thinking to yourself, "But don't `roll` and `concat` require two
 
 Seeing as Clojure treats commas as whitespace, we might make this more clear (for the purposes of this explanation) like so:
 
-```
+```clojure
 (it "should give the bonus for scoring a spare"
     (should= 16 (score-game (-> []
                                 (roll ,,, 5)
@@ -47,7 +47,7 @@ So `[]` is passed as if to say `(roll [] 5)`, the return value of which is passe
 
 Our refactoring journey does not end here, though. There is still some blatant code duplication here on lines 3-4, so as the cherry on top let's factor those calls out to a function. This is especially appropriate as they serve the specific purpose of representing a spare, so it's worth denoting this as
 
-```
+```clojure
 (defn roll-spare [rolls]
     (take 2 (iterate roll [rolls 5])))
 

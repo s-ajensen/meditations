@@ -6,7 +6,7 @@ While familiarizing myself with Clojure, it's been fascinating to see how far LI
 
 It's for this reason that I want to here take the opportunity to create a `vector` of the properties of vectors which I can refer back to (and continue to add to) whenever I'm deliberating upon whether to use a vec or a list.
 
-```
+```clojure
 (def vectors [
     "index their elements in log32N hops (much faster than lists)"
     "can be indexed by using the 'get' keyword:  (get [:a :b :c] 1) => :b"

@@ -6,7 +6,7 @@ Something which inevitably arises when unit testing is the need for `test double
 
 I ran into this recently while working on the unbeatable tic-tac-toe kata and needed to test the part of my code which determined which token the AI would take on `X` or `O`.
 
-```
+```clojure
 (defn init-game []
   (if (zero? (rand-int 2))
     (vec (flatten `(\X ~(repeat 8 nil))))
@@ -21,7 +21,7 @@ This is where the notion of stubs comes into play. A stub is essentially a canne
 
 In Clojure, that might look like this:
 
-```
+```clojure
 (with-stubs)
 (it "returns the first move on successful roll"
   (with-redefs [rand-int (stub :mock-rand {:return 0})]

@@ -12,7 +12,7 @@ In classic TDD fashion, I asked myself, "What is the smalled about of code that 
 
 I ended up devising a scheme to check if the following token in the sequence was greater than or less than the given token. If it was greater I indicate that the current token should be subtracted, if not I indicate that it should be added.
 
-```
+```clojure
 (def digits {\I 1 \V 5 \X 10 \L 50 \C 100 \D 500 \M 1000})
 
 (defn subtotal-coefficient [first second]
@@ -28,7 +28,7 @@ But this now made it so that the parser could not distinguish between a smaller 
 
 Okay, back to the drawing board. Let's remedy this by starting at the end and going backwards, reversing the comparison logic. That way we're sure to pair the `C` with the `M` correctly.
 
-```
+```clojure
 (def digits {\I 1 \V 5 \X 10 \L 50 \C 100 \D 500 \M 1000})
 
 (defn subtotal-coefficient [first second]
@@ -44,7 +44,7 @@ Okay great, now the `MCM` passes, but now tests from the very beginning are fail
 
 So back to the drawing board I went. I realized that to remedy this issue, I could preemtively consolidate identical, consecutive characters like so
 
-```
+```clojure
 (def digits {\I 1 \V 5 \X 10 \L 50 \C 100 \D 500 \M 1000})
 
 (defn subtotal-coefficient [first second]
