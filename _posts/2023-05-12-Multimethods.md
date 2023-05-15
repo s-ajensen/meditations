@@ -20,9 +20,7 @@ This allows us to iterate over sequences, calling each implementation seamlessly
 (def friends { { :name "John"       :language :english }
                { :name "Σταύρος"    :language :greek} })
 
-(-> friends
-  (map :language)
-  (greet))
+(for [f friends] (str (f :name) " says " (f :language))) ;=> ("John says Hello!" "Σταύρος says Γεια!")
 ```
 
 Which outputs
