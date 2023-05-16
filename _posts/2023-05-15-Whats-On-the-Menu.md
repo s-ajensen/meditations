@@ -2,7 +2,7 @@
 title: "What's on the Menu?"
 ---
 
-Recently, while implementing an unbeatable tic-tac-toe algorithm, I ran into the issue of needing a flexible UI. Doing TDD, this had to begin with a test, though... but how can I unit test that the UI is displaying properly? Simply checking that the output string to the console is expected aside, I sought out to test that the relationships between the menus functioned correctly. After all, transferring state and invoking commands is the true meat and potatoes of the UI in the first place.
+Recently, while implementing an unbeatable tic-tac-toe algorithm, I ran into the issue of needing a flexible UI. Doing TDD, this had to begin with a test, though... but how can I unit test that the UI is displaying properly? Simply checking that the output string to the console is expected aside, I sought out to test that the relationships between the menus functioned correctly. After all, invoking commands is the true meat and potatoes of the UI in the first place.
 
 We need to be able to accept user input and transfer the current state of the program accordingly, so I started off with my first test:
 
