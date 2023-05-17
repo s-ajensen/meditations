@@ -44,4 +44,4 @@ java-cmd "/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home/bin/java"
 
 And sure enough, evaluation presented me with the following window without any complaints:
 
-![spiral](img/spiral.png)
+![spiral](https://i.imgur.com/GxOYl0o.png)
