@@ -15,7 +15,7 @@ On the surface, a very simple structure for relating key-value pairs, but which 
 ```clojure
 (def homeric-figures
   {:hellenes  {"Ulysses"    "Ὀδυσσεύς"
-               "Menelaus"   "Μενέλαος"
+               "Nestor"     "Νέστωρ"
                "Achilles"   "Ἀχιλεύς"}
   {:trojans   {"Hector"     "Ἕκτωρ"
                "Paris"      "Πάρις"
@@ -28,8 +28,8 @@ Even going as far as to nest multiple times
 (def homeric-figures
   {:hellenes  {"Ulysses"    {:greek "Ὀδυσσεύς"
                              :desc "Got lost on his way home"}
-               "Menelaus"   {:greek "Μενέλαος"
-                             :desc "Was wed to Helen of Troy"}
+               "Nestor"     {:greek "Νέστωρ"
+                             :desc "Talks too much"}
                "Achilles"   {:greek "Ἀχιλεύς"
                              :desc "Should've worn boots"}}
   {:trojans   {"Hector"     {:greek "Ἕκτωρ"
