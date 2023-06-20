@@ -2,7 +2,7 @@
 title: "A Volatile Situation"
 ---
 
-In my last post, I talked briefly discussed the memory hierarchy which computers use to efficiently process data. In this post, I'd like to expand on this subject and talk more about the implications of this at the runtime of our programs.
+In my [last post](https://s-ajensen.github.io/meditations/2023/06/19/The-Library-Example.html), I talked briefly discussed the memory hierarchy which computers use to efficiently process data. In this post, I'd like to expand on this subject and talk more about the implications of this at the runtime of our programs.
 
 When we have data which is frequently used by a program—take the sentry variable of a while loop—it will be cached *very aggressively*. For instance:
 
@@ -45,7 +45,7 @@ example.cancelled = true;
 
 We would expect the first two lines to spawn that thread, sleep for 100ms, and then print `done!`... but on many systems the above *will never exit*. Why?
 
-Well, if the spawned thread is being processed on a different CPU (which on modern, multi-core systems is highly likely) then as a side effect of being accessed so frequently (every 10ms) it likely lives in a register (or at the very least in a cache which is only visible to that particular CPU). When we set `cancelled` to `true` in the main thread, that value is never being access because the thread performing `run()` is using its own, cached version. From this we can see, **for memory to be shared between threads, it must be stored in a palce accessible to all of them**.
+Well, if the spawned thread is being processed on a different CPU (which on modern, multi-core systems is highly likely) then as a side effect of being accessed so frequently (every 10ms) it likely lives in a register (or at the very least in a cache) which is only visible to that particular CPU. When we set `cancelled` to `true` in the main thread, that value is never being access because the thread performing `run()` is using its own, cached version. From this we can see, **for memory to be shared between threads, it must be stored in a palce accessible to all of them**.
 
 In Java, we can do this by defining our `cancelled` variable with the `@volatile` modifier which forces it to be stored in memory which is not CPU-specific (e.g. RAM). This means that it will be slightly slower to access, but it will be thread-safe:
 
