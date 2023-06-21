@@ -2,7 +2,7 @@
 title: "A Volatile Situation"
 ---
 
-In my [last post](https://s-ajensen.github.io/meditations/2023/06/19/The-Library-Example.html), I talked briefly discussed the memory hierarchy which computers use to efficiently process data. In this post, I'd like to expand on this subject and talk more about the implications of this at the runtime of our programs.
+In my [last post](https://s-ajensen.github.io/meditations/2023/06/19/The-Library-Example.html), I briefly discussed the memory hierarchy which computers use to efficiently process data. In this post, I'd like to expand on this subject and talk more about the implications of this at the runtime of our programs.
 
 When we have data which is frequently used by a program—take the sentry variable of a while loop—it will be cached *very aggressively*. For instance:
 

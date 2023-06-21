@@ -5,7 +5,7 @@ Imagine that you arrive at your public library with the intent to do research fo
 
 Now sitting at your desk, you can begin writing. Naturally, over the course of your work, you take a book you think will have information pertinent to your working paragraph, sift through the chapters until you find a promising page, scanning each paragraph, line, and phrase until you find what you need, perhaps leaving the book open for potential later use.
 
-As time goes on, the paper develops. You find yourself needing very specific information about masonry, European geography, Church history, etc, but these topics aren't covered in the books you have at your desk (which at this point is *totally* covered), so you take the books you've been using the least and put them back on the shelves to make room. Doing so, you slip into a kind of pattern of questioning:
+As time goes on, the paper develops. You find yourself needing very specific information about masonry, European geography, Church history, etc., but these topics aren't covered in the books you have at your desk (which at this point is *totally* covered), so you take the books you've been using the least and put them back on the shelves to make room. Doing so, you slip into a kind of pattern of questioning:
 
 *Is what I'm looking for on this page?*
 
