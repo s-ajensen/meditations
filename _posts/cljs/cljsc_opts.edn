@@ -1,0 +1,1 @@
+{:infer-externs true, :output-dir "resources/public/cljs/", :cache-analysis false, :sources ["src/cljs"], :optimizations :advanced, :cljs.closure/watch-triggered-build? true, :verbose false, :output-to "resources/public/cljs/app.js", :specs false, :pretty-print false}
