@@ -19,3 +19,5 @@ Exercising this process, one slips into a pattern whichâ€”interestingly enoughâ€
 3. **If yes**, do so and pop the requirement off the stack, **if no** then
 4. Identify a smaller, more-specific requirement which is a prerequisite to the current one and push it to the top of the stack
 5. Repeat
+
+Following this pattern, our large features will be implemented when the stack is empty!
