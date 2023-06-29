@@ -4,7 +4,7 @@ title: "Beck's List"
 
 Inevitably—while working in TDD—we find ourselves in a position where we are simply stuck. We have some functionality that needs to be implemented, but in order to do so there is no minute, incremental change which we can write a test for. After writing (and subsequently rewriting) a section of code five or six times I found myself in this very position, asking myself, "what is to be done?"
 
-For inspiration, I referred back to my very first introduction to TDD: Kent Beck's *TDD by example*. 
+For inspiration, I referred back to my very first introduction to TDD: Kent Beck's *Test Driven Development: By Example*. 
 
 In the first chapter of this book he outlines his process whereby he employs a kind of top-down approach for a feature. He begins with a high-level requirement, which would require a great deal of code, and asks a question:
 
