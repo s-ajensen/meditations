@@ -1,0 +1,7 @@
+---
+title: "An Eventful Inquiry"
+---
+
+As part of my research into the nuances between AJAX and websocket requests, I was surprised to learn about a third type of relationship between client and server: an event-driven one. If AJAX is a connection between client and server where the client sends request data to the server, server events provide an *almost*-opposite functionality. When taking advantage of server events, a connection is established between client and server, but then left open. This open connection then acts as a *unidirectional* stream from the server to the client, i.e., once the client initializes the connection, it cannot send data to the server, only the other way around. On the client's end, the consumption of this data stream is very similar to that of a websocket connection: it receives blocks of data and reacts in some way until the connection is severed.
+
+Although this technology is not currently being used in any of the internal projects that I'm working on, I find the possibilities which it entails very interesting. For instance, suppose that a large amount of data is being processed on the server after being uploaded from the user. As the server continues to process this data, it could send some indication of what portion of the data is left for processing, which then could be used on the front end to display some sort of progress bar without the need for polling or some websocket connection for bidirectional communication.

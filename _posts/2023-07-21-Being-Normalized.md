@@ -1,0 +1,13 @@
+---
+title: "Being Normal(ized)"
+---
+
+When developing a program which involves entities which will be stored in a database, we generally refer to the process of organizing these entities effectively as *normalization*. While—in practice—this may take many forms, the principles of such organization are downstream of one of our fundamental desires as software engineers: to create code which is *extensible*, i.e., open to change. 
+
+For instance, if we have an entity that must be associated with another, say, a `project` with a `user`, we may wish to simply create a `:project/user` attribute that designates an association between them. But as is often the case, we may need to associate the project with multiple users down the line. In this case, the solution is not to create another attribute, say, `:project/user2`, as this will involve executing data migrations and business logic changes to accomodate them. Likewise, it's entirely likely that we will need to associate more users in the future, which would begin this process all over again. 
+
+To avoid creating more work for ourselves in the future, we would be better off creating a new entity which *refers* to the other two entities, such as a `:member` which holds references to `:member/project` and `:member/user` so we can add new users to a project simply by executing a db transaction instead of a migration. The design decision made here is traditionally referred to as the "First Normal Form" of a database when its entities obey it.
+
+Likewise, the "Second Normal Form" implies creating new entities for fields which are referenced by multiples of others. For instance, perhaps we have multiple entities: `:user`, `:order`, and `:account-receivable` which must be associated with an address. Supposing that these entities are referring to the same address, if we stored the same data in all three, not only would we be wasting space with duplicate data, but we run the risk of these entities becoming "out of sync" if the address changes for one but not the others. In this case, it may be preferable to create a new entity, `:address`, which the other three may refer to in order to maintain continuity.
+
+Enforcing these rules (and removing the fields which refer to nothing as a result of them, the "Third Normal Form"), is what we refer to as the "normalization" of a database and applies to all data storage in a SQL context or otherwise since they rely on the same foundational principle: leave the system open to change.

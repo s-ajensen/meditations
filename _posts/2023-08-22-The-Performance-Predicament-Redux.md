@@ -1,0 +1,9 @@
+---
+title: "The Performance Predicament Redux"
+---
+
+In my last post, I documented some of the changes that I made in an attempt to increase the performance of our site serving large amount of static content to the client. Upon further consultation with my mentor, it was brought to my attention that my understanding of the configuration file was a bit misguided.
+
+See, the throttling value which I changed to allow more requests/second was a parameter that only applied to our Clojure web server which nginx points to as a proxy. The intended use here is such that if nginx receives a request for static content, it will find the file and serve it immediately. If the content is not found, then forward the request to the Clojure server (because it's likely an API call for data). Since increasing the throttling threshold increased performance on the site when serving static content, this meant that nginx was not the one serving it as it should, rather it was the Clojure web server!
+
+Looking at the nginx logs, it was revealed that every time there was a request for a static resource nginx tried to load it automatically but was denied due to a lack of proper permissions for it. Due to this failure, it forwarded the request to the Clojure server which *did* have the correct permissions and sent the file back. Then we remembered a recent change that we made to our Java version (from 8 to 17). This change prompted an upgrade to the latest stable version of Ubuntu which, after some quick research, was found to lock down the home directory of new users to an access level inaccessible to nginx. To fix the problem all we had to do was introduce a change in our build configuration to set the permissions of this directory appropriately and nginx started serving the static content again. This decreased the load time even further to ~3s on first load—a drastic improvement.

@@ -1,0 +1,11 @@
+---
+title: "The Performance Predicament"
+---
+
+Last week, during part of a demo for some changes I made to the discounting logic on our cleancoders.com site, it was drawn to our attention that the load times for some of the pages on the site were unbearably slow. The first place it was noticed was while adding and removing items from the cart, what should have been a simple transaction. Being as this was a part of the code I had recently changed, this was where I began to look first.
+
+Upon further investigation, I found that hidden under layers of complexity, there were database calls which were being made inside an iterator that was being called many times per addition/removal of an item from the cart. To fix this, I extracted all of the data retrieval code to a higher scope than where it would be eventually used and stored it in a map in memory. This way, I could pass the map in to the place the data would be used and it could be queried without having to hit the database again. Although the *amount* of data which was retrieved from the database was unchanged, it was performed in a single transaction and was therefore much faster. It's similar to the difference between loading in an entire file into memory and parsing it piece by piece there instead of opening and closing the file each time that you want to look inside it.
+
+This increased performance significantly in the cart... but while investigating the problem we noticed this lagginess on other parts of the site as well, particularly the front page. There's no way that this could be caused by the changes I made in the cart, the two modules are totally unrelated; it had to be something else.
+
+After some more tinkering—and consultation of my mentor—we decided that the next place to look would be the front-facing nginx web server that we have as the public access point for our server. Sure enough, looking inside the configuration file for nginx I found that there was a configuration throttling the number of requests that can be handled to 5 per second. With the amount of media being served from our site, increasing this number fivefold resulted in an increase in performance from ~18s load time to ~6s—a drastic improvement for a server that was using ~5% of its resources on average.

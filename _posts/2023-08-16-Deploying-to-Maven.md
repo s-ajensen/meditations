@@ -1,0 +1,9 @@
+---
+title: "Deploying to Clojars"
+---
+
+One of the stories I'm working on this week involves deploying some of our internal libraries to a centralized repository so they can be indexed by third party due dilligence software. Currently, our projects live on GitHub and are imported via the very handy `:git/tag` method provided by deps, but this format is not indexable by those third party tools.
+
+The first resource I looked into was deploying straight to [Maven Central](https://central.sonatype.com/), seeing as this is the defacto standard repository for Java projects on which there are many Clojure projects stored. However, upon looking into what would go into deploying to Maven on a team-wide basis, this option was not preferable. Our organization would have to be registered via *yet another* repository service, sonatype, and then all team members would need to register and be made members on this platform to deploy. Keeping things as simple as possible was a large priority with this task, so I kept looking.
+
+As it turned out, our organization was registered on the standard Clojure dependency repository, [Clojars](https://clojars.org/), though had fallen out of use due to how difficult it was to get a project deployed with multiple team members. Since the most recent deployment (which was years ago), Clojars added functionality to allow teams to distribute deployment keys amongst their members, making this the clear choice for our deploy target. All that would need to be done is add each member to the organization and save the generated keys on their local machines and deployment could happen seamlessly.
